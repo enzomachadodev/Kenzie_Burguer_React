@@ -2,9 +2,10 @@ import ProductCard from "../ProductCard";
 import { useContext } from "react";
 
 import { StyledProductsList } from "./style";
-import { IProducts, ProductsContext } from "../../context/ProductsContext";
+import { ProductsContext } from "../../context/ProductsContext";
 import { ShoppingCartContext } from "../../context/ShoppingCartContext";
 import NotFound from "../NotFound";
+import Loader from "../Loader";
 
 const ProductsList = () => {
 	const { searchProducts, loading } = useContext(ProductsContext);
@@ -13,7 +14,7 @@ const ProductsList = () => {
 	return (
 		<StyledProductsList>
 			{loading ? (
-				<span>loading...</span>
+				<Loader />
 			) : searchProducts.length == 0 ? (
 				<NotFound />
 			) : (
