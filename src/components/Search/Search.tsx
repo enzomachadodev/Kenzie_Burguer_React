@@ -12,7 +12,6 @@ function Search() {
 
 	const handleSubmit: React.FormEventHandler = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		console.log(search);
 		if (search === "") {
 			setSearchProducts(products);
 		} else {

@@ -7,12 +7,14 @@ import { ShoppingCartContext } from "../../context/ShoppingCartContext";
 import NotFound from "../NotFound";
 
 const ProductsList = () => {
-	const { searchProducts } = useContext(ProductsContext);
+	const { searchProducts, loading } = useContext(ProductsContext);
 	const { addProductCart } = useContext(ShoppingCartContext);
 
 	return (
 		<StyledProductsList>
-			{searchProducts.length == 0 ? (
+			{loading ? (
+				<span>loading...</span>
+			) : searchProducts.length == 0 ? (
 				<NotFound />
 			) : (
 				searchProducts.map((elem) => {

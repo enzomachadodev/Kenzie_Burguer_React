@@ -14,6 +14,7 @@ export interface IProductsContext {
 	products: IProducts[];
 	searchProducts: IProducts[];
 	setSearchProducts: Dispatch<SetStateAction<IProducts[]>>;
+	loading: boolean;
 }
 
 export interface IProductsProviderProps {
@@ -25,7 +26,6 @@ const ProductsContext = createContext<IProductsContext>({} as IProductsContext);
 const ProductsProvider = ({ children }: IProductsProviderProps) => {
 	const [products, setProducts] = useState<IProducts[]>([]);
 	const [loading, setLoading] = useState(false);
-	const [cartList, setCartList] = useState<IProducts[]>([]);
 	const [searchProducts, setSearchProducts] = useState<IProducts[]>([]);
 
 	useEffect(() => {
@@ -50,6 +50,7 @@ const ProductsProvider = ({ children }: IProductsProviderProps) => {
 				products,
 				searchProducts,
 				setSearchProducts,
+				loading,
 			}}
 		>
 			{children}
