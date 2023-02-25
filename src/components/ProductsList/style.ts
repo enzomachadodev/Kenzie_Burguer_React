@@ -8,7 +8,7 @@ export const StyledProductsList = styled.ul`
 	align-items: center;
 	justify-content: flex-start;
 	width: 100%;
-
+	min-height: 310px;
 	@media (min-width: 768px) {
 		flex-wrap: wrap;
 		overflow: unset;
