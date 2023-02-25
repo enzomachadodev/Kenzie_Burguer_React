@@ -1,21 +1,14 @@
+import Search from "../Search/Search";
 import { StyledHeader, StyledForm } from "./style";
 
 const Header = ({ setPesquisa }) => {
 	return (
 		<StyledHeader>
-			<div>
+			<div className="header-container">
 				<h1>
 					Burguer<span>Kenzie</span>
 				</h1>
-				<StyledForm>
-					<input
-						type="text"
-						placeholder="Digitar Pesquisa"
-						onChange={(event) => setPesquisa(event.target.value)}
-						required
-					/>
-					<button type="submit">Pesquisar</button>
-				</StyledForm>
+				<Search />
 			</div>
 		</StyledHeader>
 	);

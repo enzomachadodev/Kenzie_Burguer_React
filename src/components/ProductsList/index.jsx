@@ -45,21 +45,6 @@ const ProductsList = () => {
 				}
 			})
 		);
-
-		// if (!cartList.find((prod) => prod.name === elem.name)) {
-		// 	setCartList([...cartList, elem]);
-		// } else {
-		// 	let newArray = cartList.map((prod) => {
-		// 		if (prod.name === elem.name) {
-		// 			prod.quant += 1;
-		// 			return prod;
-		// 		} else {
-		// 			return prod;
-		// 		}
-		// 	});
-
-		// 	setCartList(newArray);
-		// }
 	}
 
 	const produtosPesquisados = products.filter((elem) => {
@@ -67,9 +52,7 @@ const ProductsList = () => {
 			return elem;
 		} else if (elem.name.toLowerCase().includes(pesquisa.toLowerCase())) {
 			return elem;
-		} else if (
-			elem.category.toLowerCase().includes(pesquisa.toLowerCase())
-		) {
+		} else if (elem.category.toLowerCase().includes(pesquisa.toLowerCase())) {
 			return elem;
 		}
 	});
