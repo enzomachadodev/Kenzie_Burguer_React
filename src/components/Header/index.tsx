@@ -1,7 +1,7 @@
 import Search from "../Search/Search";
-import { StyledHeader, StyledForm } from "./style";
+import { StyledHeader } from "./style";
 
-const Header = ({ setPesquisa }) => {
+const Header = () => {
 	return (
 		<StyledHeader>
 			<div className="header-container">
