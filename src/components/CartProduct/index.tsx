@@ -1,4 +1,4 @@
-import { IProducts } from "../../interfaces/interfaces";
+import { IProducts } from "../../context/ProductsContext";
 import { ProductCart } from "./style";
 
 interface ICartProductsProps {
