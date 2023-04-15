@@ -1,38 +1,28 @@
 import ProductCard from "../ProductCard";
 import { useContext } from "react";
 
-import { List } from "./style";
-import { SearchContext } from "../../context/Search/SearchContext";
-import { ProductsContext } from "../../context/Products/ProductsContext";
-import { IProducts } from "../../interfaces/interfaces";
+import { StyledProductsList } from "./style";
+import { ProductsContext } from "../../context/ProductsContext";
+import { ShoppingCartContext } from "../../context/ShoppingCartContext";
+import NotFound from "../NotFound";
+import Loader from "../Loader";
 
 const ProductsList = () => {
-	const { setCartList, cartList, products } = useContext(ProductsContext);
-	const { searchProducts } = useContext(SearchContext);
-
-	const addCart = (elem: IProducts) => {
-		setCartList(
-			cartList.map((prod: IProducts) => {
-				if (prod.name === elem.name) {
-					prod.quant!++;
-					return prod;
-				} else {
-					return prod;
-				}
-			})
-		);
-	};
+	const { searchProducts, loading } = useContext(ProductsContext);
+	const { addProductCart } = useContext(ShoppingCartContext);
 
 	return (
-		<>
-			<List>
-				<>
-					{products.map((elem) => {
-						return <ProductCard key={elem.id} product={elem} addCart={addCart} />;
-					})}
-				</>
-			</List>
-		</>
+		<StyledProductsList>
+			{loading ? (
+				<Loader />
+			) : searchProducts.length == 0 ? (
+				<NotFound />
+			) : (
+				searchProducts.map((elem) => {
+					return <ProductCard key={elem.id} product={elem} addCart={addProductCart} />;
+				})
+			)}
+		</StyledProductsList>
 	);
 };
 
